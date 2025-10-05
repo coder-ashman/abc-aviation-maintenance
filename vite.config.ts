@@ -7,15 +7,39 @@ import path from 'path';
 // (see src/main.ts) to register lifecycle methods.
 export default defineConfig({
   plugins: [vue()],
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production'),
+  },
+  server: {
+    port: 4202,
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    }
+  },
+  preview: {
+    port: 4202,
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    }
+  },
   build: {
     target: 'esnext',
     minify: false,
+    modulePreload: false,
+    lib: {
+      entry: path.resolve(__dirname, 'src/main.ts'),
+      formats: ['es'],
+      fileName: () => 'main.js',
+    },
     rollupOptions: {
-      input: path.resolve(__dirname, 'src/main.ts'),
       output: {
         format: 'esm',
-        entryFileNames: 'maintenance/[name].js',
-        chunkFileNames: 'maintenance/[name].js',
       },
     },
   },
