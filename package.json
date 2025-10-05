@@ -1,0 +1,19 @@
+{
+  "name": "maintenance-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "single-spa-vue": "^2.0.0",
+    "@shared/ui": "*"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "typescript": "^5.3.0"
+  }
+}

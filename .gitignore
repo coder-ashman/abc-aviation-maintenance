@@ -1,0 +1,67 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Diagnostic reports
+report.*.json
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Vite outputs
+.dist/
+dist/
+.vite/
+.rollup.cache/
+.parcel-cache/
+.esbuild/
+
+# Module Federation artifacts
+webpack-stats.json
+federation-stats.json
+*.mf-manifest.json
+*.module-federation.json
+**/remoteEntry.js
+**/remoteEntry.js.map
+.mfsp/
+
+# Testing
+coverage/
+*.lcov
+
+# Temporary files
+.tmp/
+.temp/
+tmp/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDEs and editors
+.idea/
+.vscode/
+*.iml
+*.suo
+*.sw?
+*.njsproj
+*.sln
+*.ntvs*
+
+# OS
+.DS_Store
+Thumbs.db
+
