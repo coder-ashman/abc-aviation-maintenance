@@ -40,7 +40,7 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        format: 'esm',
+        format: 'es',
         inlineDynamicImports: true,  // Keep everything in one file
         assetFileNames: '[name][extname]',  // Preserve asset names
       },
