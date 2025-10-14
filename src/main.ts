@@ -22,15 +22,10 @@ const vueLifecycles = singleSpaVue({
 // Track CSS link element
 let styleLink: HTMLLinkElement | null = null;
 
-export const bootstrap = async (props: any) => {
-  console.log('🚀 Maintenance App: Bootstrapping...');
-  return vueLifecycles.bootstrap(props);
-};
+export const bootstrap = vueLifecycles.bootstrap;
 
 export const mount = async (props: any) => {
-  console.log('📦 Maintenance App: Mounting...', { props });
-  
-  // Inject CSS if not already present
+  // Inject the built CSS (Vite library mode doesn't auto-inject it)
   if (!styleLink) {
     styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
@@ -39,13 +34,10 @@ export const mount = async (props: any) => {
     document.head.appendChild(styleLink);
   }
   
-  const result = await vueLifecycles.mount(props);
-  console.log('✅ Maintenance App: Mounted successfully!');
-  return result;
+  return vueLifecycles.mount(props);
 };
 
 export const unmount = async (props: any) => {
-  console.log('🔄 Maintenance App: Unmounting...');
   const result = await vueLifecycles.unmount(props);
   
   // Remove CSS when unmounting
@@ -54,6 +46,5 @@ export const unmount = async (props: any) => {
     styleLink = null;
   }
   
-  console.log('✅ Maintenance App: Unmounted successfully!');
   return result;
 };

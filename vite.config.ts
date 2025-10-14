@@ -32,6 +32,7 @@ export default defineConfig({
     target: 'esnext',
     minify: false,
     modulePreload: false,
+    cssCodeSplit: false,  // Ensure CSS is bundled into JS
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
       formats: ['es'],
@@ -40,6 +41,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         format: 'esm',
+        inlineDynamicImports: true,  // Keep everything in one file
+        assetFileNames: '[name][extname]',  // Preserve asset names
       },
     },
   },
